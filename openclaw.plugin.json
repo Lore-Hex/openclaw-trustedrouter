@@ -1,0 +1,76 @@
+{
+  "id": "trustedrouter",
+  "name": "TrustedRouter",
+  "description": "TrustedRouter model provider (OpenAI-compatible)",
+  "categories": ["models"],
+  "activation": { "onStartup": false },
+  "enabledByDefault": true,
+  "providers": ["trustedrouter"],
+  "providerEndpoints": [
+    { "endpointClass": "trustedrouter", "hosts": ["api.trustedrouter.com"] }
+  ],
+  "providerRequest": { "providers": { "trustedrouter": { "family": "trustedrouter" } } },
+  "setup": {
+    "providers": [{ "id": "trustedrouter", "envVars": ["TRUSTEDROUTER_API_KEY"] }]
+  },
+  "providerAuthChoices": [
+    {
+      "provider": "trustedrouter",
+      "method": "api-key",
+      "choiceId": "trustedrouter-api-key",
+      "choiceLabel": "TrustedRouter API key",
+      "groupId": "trustedrouter",
+      "groupLabel": "TrustedRouter",
+      "groupHint": "API key",
+      "optionKey": "trustedrouterApiKey",
+      "cliFlag": "--trustedrouter-api-key",
+      "cliOption": "--trustedrouter-api-key <key>",
+      "cliDescription": "TrustedRouter API key"
+    }
+  ],
+  "modelCatalog": {
+    "modelsDev": { "trustedrouter": "trustedrouter" },
+    "providers": {
+      "trustedrouter": {
+        "baseUrl": "https://api.trustedrouter.com/v1",
+        "api": "openai-completions",
+        "defaultModel": "trustedrouter/auto",
+        "models": [
+          {
+            "id": "trustedrouter/auto",
+            "name": "TrustedRouter Auto",
+            "input": ["text"],
+            "contextWindow": 200000,
+            "maxTokens": 8192,
+            "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 }
+          },
+          {
+            "id": "trustedrouter/cheap",
+            "name": "TrustedRouter Cheap",
+            "input": ["text"],
+            "contextWindow": 200000,
+            "maxTokens": 8192,
+            "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 }
+          },
+          {
+            "id": "trustedrouter/fast",
+            "name": "TrustedRouter Fast",
+            "input": ["text"],
+            "contextWindow": 200000,
+            "maxTokens": 8192,
+            "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 }
+          },
+          {
+            "id": "trustedrouter/zdr",
+            "name": "TrustedRouter ZDR",
+            "input": ["text"],
+            "contextWindow": 200000,
+            "maxTokens": 8192,
+            "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 }
+          }
+        ]
+      }
+    }
+  },
+  "configSchema": { "type": "object", "additionalProperties": false, "properties": {} }
+}

@@ -1,0 +1,61 @@
+{
+  "name": "@lore-hex/openclaw-trustedrouter",
+  "version": "0.1.0",
+  "description": "OpenClaw provider plugin for TrustedRouter (OpenAI-compatible LLM router)",
+  "type": "module",
+  "license": "MIT",
+  "author": "Joseph Perla",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lore-Hex/openclaw-trustedrouter.git"
+  },
+  "homepage": "https://github.com/Lore-Hex/openclaw-trustedrouter#readme",
+  "bugs": "https://github.com/Lore-Hex/openclaw-trustedrouter/issues",
+  "keywords": [
+    "openclaw",
+    "openclaw-plugin",
+    "trustedrouter",
+    "llm",
+    "provider"
+  ],
+  "main": "./dist/index.js",
+  "files": [
+    "dist",
+    "openclaw.plugin.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p .",
+    "test": "npm run build && vitest run",
+    "prepack": "npm run build"
+  },
+  "peerDependencies": {
+    "openclaw": ">=2026.9.9"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "openclaw": "^2026.9.9",
+    "typescript": "^7.0.2",
+    "vitest": "^4.1.11"
+  },
+  "engines": {
+    "node": ">=24.16.0 <25 || >=26.1.0"
+  },
+  "openclaw": {
+    "extensions": [
+      "./dist/index.js"
+    ],
+    "providers": [
+      "trustedrouter"
+    ],
+    "compat": {
+      "pluginApi": ">=2026.9.9",
+      "minGatewayVersion": "2026.9.9"
+    },
+    "build": {
+      "openclawVersion": "2026.9.9",
+      "pluginSdkVersion": "2026.9.9"
+    }
+  }
+}
